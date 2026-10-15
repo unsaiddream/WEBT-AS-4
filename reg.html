@@ -259,10 +259,94 @@
     </div>
 
 </div>
+		
+	<div class="mb-3">
+
+    <button type="submit" class="btn btn-primary">
+        Register
+    </button>
+
+    <button type="reset" class="btn btn-secondary">
+        Reset
+    </button>
+
+</div>
 
         </form>
 
     </div>
+    <script>
 
+const form = document.getElementById("registrationForm");
+
+const password = document.getElementById("password");
+const confirmPassword = document.getElementById("confirmPassword");
+
+form.addEventListener("submit", function(event) {
+
+    event.preventDefault();
+
+
+    if (password.value !== confirmPassword.value) {
+        confirmPassword.setCustomValidity("Passwords do not match");
+    } else {
+        confirmPassword.setCustomValidity("");
+    }
+
+
+    const inputs = form.querySelectorAll(
+        'input:not([type="radio"]):not([type="checkbox"]), select'
+    );
+
+    inputs.forEach(function(input) {
+
+        if (input.checkValidity()) {
+            input.classList.add("is-valid");
+            input.classList.remove("is-invalid");
+        } else {
+            input.classList.add("is-invalid");
+            input.classList.remove("is-valid");
+        }
+
+    });
+
+
+    const genderSelected = form.querySelector(
+        'input[name="gender"]:checked'
+    );
+
+    const genderFeedback = document.getElementById("genderFeedback");
+
+    if (genderSelected) {
+        genderFeedback.classList.add("d-none");
+    } else {
+        genderFeedback.classList.remove("d-none");
+    }
+
+
+
+    if (form.checkValidity()) {
+        alert("Registration successful!");
+    }
+
+});
+
+
+
+form.addEventListener("reset", function() {
+
+    const inputs = form.querySelectorAll("input, select");
+
+    inputs.forEach(function(input) {
+        input.classList.remove("is-valid", "is-invalid");
+    });
+
+    confirmPassword.setCustomValidity("");
+
+    document.getElementById("genderFeedback").classList.add("d-none");
+
+});
+
+</script>
 </body>
 </html>
