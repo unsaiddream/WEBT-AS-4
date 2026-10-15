@@ -83,6 +83,57 @@
 	        Please enter a valid email
 	    </div>
 	</div>
+
+	<div class="row mb-3">
+
+    <div class="col-md-6">
+
+        <label for="password" class="form-label">
+            Password
+        </label>
+
+        <input
+            type="password"
+            class="form-control"
+            id="password"
+            minlength="8"
+            required
+        >
+
+        <div class="valid-feedback">
+            looks good
+        </div>
+
+        <div class="invalid-feedback">
+            Password must contain at least 8 characters
+        </div>
+
+    </div>
+
+    <div class="col-md-6">
+
+        <label for="confirmPassword" class="form-label">
+            Confirm Password
+        </label>
+
+        <input
+            type="password"
+            class="form-control"
+            id="confirmPassword"
+            required
+        >
+
+        <div class="valid-feedback">
+            passwords match
+        </div>
+
+        <div class="invalid-feedback">
+            Passwords do not match
+        </div>
+
+    </div>
+
+</div>
         </form>
 
     </div>
